@@ -1,0 +1,15 @@
+spring:
+  codec:
+    max-in-memory-size: 100MB
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/zcms
+      auto-index-creation: true
+
+server:
+  port: 9090
+  error:
+    include-stacktrace: never
+
+app:
+  public_routes: /auth/**, /files/**

@@ -1,0 +1,20 @@
+EndorsementService
+	=> marineHullProposalDAO.update(marineHullProposal);
+	=> workFlowDTOService.updateWorkFlow(workFlowDTO);
+	=> marineHullPolicyService.updateMarineHullPolicy(marineHullPolicy);
+	=> payment = paymentDAO.insert(payment);
+	
+	if(marineHullEndorseInfo.getId() == null)
+		=> marineHullEndorsementDAO.deleteMarineHullEndorseInfo(oldEndorseInfo);
+		=> marineHullEndorsementDAO.insertMarineHullEndorseInfo(oldEndorseInfo);
+	else
+		=> marineHullEndorsementDAO.updateMarineHullEndorseInfo(marineHullEndorseInfo);
+	
+	=> marineHullPolicyTimeLineLogService.addMarineHullPolicyEndorseLog(endorseLog);
+	=> marineHullPolicyTimeLineLogService.addMarineHullPolicyIdLog(idLog);
+
+ProposalService
+	=> workFlowDTOService.updateWorkFlow(workFlowDTO);
+	=> marineHullProposalDAO.update(marineHullProposal);			x Error (Optimistic Lock)
+	=> marineHullPolicyService.addNewMarineHullPolicy(marineHullPolicy);
+	=> paymentDAO.insert(payment);
