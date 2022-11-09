@@ -1,0 +1,25 @@
+<section class="field-chooser-section" *ngIf="!showFieldDetailsPopup">
+  <div class="field-chooser-wrapper">
+    <div class="header">
+      <p class="header-text">BLOG</p>
+      <fa-icon class="close-icon" [icon]="closeIcon" (click)="closeFileChooserPopup()"></fa-icon>
+    </div>
+    <div class="body">
+      <div class="fields-container">
+        <div class="field" *ngFor="let fieldType of fieldTypes" (click)="selectFieldType(fieldType)">
+          <img src="./assets/img/text.svg" alt="TEXT">
+          <div class="info">
+            <p class="type">{{fieldType.type}}</p>
+            <p class="desc f-small">{{fieldType.desc}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-field-details *ngIf="showFieldDetailsPopup"
+                   [contentModel]="activeContentModel" [selectedFiledType]="selectedFieldType"
+                   (closeEvent)="onCloseFieldDetailsPopup()"
+                   (addNewFieldEvent)="onAddNewField($event)"
+></app-field-details>

@@ -1,0 +1,36 @@
+<section class="field-chooser-section">
+  <div class="field-chooser-wrapper">
+    <div class="header">
+      <p class="header-text">Content Model</p>
+      <fa-icon class="close-icon" [icon]="closeIcon" (click)="closePopup()"></fa-icon>
+    </div>
+    <div class="body">
+      <div class="fields-container">
+        <div class="title">
+          <p class="intro-text f-header">
+            <span>Add new content model</span>
+          </p>
+          <div class="options"></div>
+        </div>
+        <form class="form" [formGroup]="formGroup">
+          <div class="form-group w-50">
+            <label for="name" class="input-label">Name</label>
+            <input id="name" type="text" class="input" formControlName="name">
+          </div>
+          <div class="form-group w-50">
+            <label for="apiId" class="input-label">API ID</label>
+            <input id="apiId" type="text" class="input" formControlName="apiId">
+          </div>
+          <div class="form-group">
+            <label for="description" class="input-label">Description</label>
+            <textarea name="description" id="description" cols="30" rows="50" class="input" formControlName="description"></textarea>
+          </div>
+          <div class="btn-container">
+            <button class="btn full-btn" *ngIf="!isUpdateMode" type="button" (click)="addNewContentModel()">Finish</button>
+            <button class="btn full-btn" *ngIf="isUpdateMode" type="button" (click)="updateContentModel()">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

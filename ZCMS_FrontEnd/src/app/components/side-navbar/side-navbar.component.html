@@ -1,0 +1,52 @@
+<section class="side-navbar">
+  <div class="navbar-wrapper">
+    <div class="logo-container">
+      <div class="img-container">
+        <img src="assets/img/logo.png" alt="ZCMS LOGO">
+      </div>
+      <div class="text-container">
+        <p class="f-header">ZCMS Dashboard</p>
+        <p class="f-small">Workplace</p>
+      </div>
+    </div>
+    <div class="links-wrapper">
+      <div class="nav-category-container">
+        <div class="nav-category">
+          <a [routerLink]="UrlConstant.CONTENT_MANAGER" class="nav-link" routerLinkActive="active">
+            <fa-icon [icon]="notesIcon"></fa-icon>
+            <p class="f-medium">Content Manager</p>
+          </a>
+        </div>
+        <div class="nav-category">
+          <p class="f-small category-header">FUNCTIONALITY</p>
+          <a [routerLink]="UrlConstant.CONTENT_TYPE_BUILDER" class="nav-link" routerLinkActive="active">
+            <fa-icon [icon]="kaabaIcon"></fa-icon>
+            <p class="f-medium">Content-Model Builder</p>
+          </a>
+          <a [routerLink]="UrlConstant.MEDIA_LIBRARY" class="nav-link" routerLinkActive="active">
+            <fa-icon [icon]="mediaIcon"></fa-icon>
+            <p class="f-medium">Media Library</p>
+          </a>
+        </div>
+        <div class="nav-category">
+          <p class="f-small category-header">GENERAL</p>
+          <a href="#" class="nav-link" routerLinkActive="active">
+            <fa-icon [icon]="settingIcon"></fa-icon>
+            <p class="f-medium">Settings</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="user-setting-wrapper">
+    <div class="user-container">
+      <div class="logo">
+        <p class="f-header">Z</p>
+      </div>
+      <p class="f-small">Zayar</p>
+      <div class="button-container" (click)="logout()">
+        <fa-icon [icon]="leftArrowIcon"></fa-icon>
+      </div>
+    </div>
+  </div>
+</section>

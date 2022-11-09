@@ -1,0 +1,40 @@
+<section class="new-content-section">
+  <div class="field-chooser-wrapper">
+    <div class="header">
+      <p class="header-text">Add New Content</p>
+      <fa-icon class="close-icon" [icon]="closeIcon" (click)="closePopup()"></fa-icon>
+    </div>
+    <div class="body">
+      <div class="fields-container">
+        <div class="title">
+          <p class="intro-text f-header">
+            <input type="text" class="content-title-input" placeholder="Enter your title" [(ngModel)]="contentTitle">
+          </p>
+          <div class="options"></div>
+        </div>
+        <form class="form" enctype="multipart/form-data">
+          <div class="form-group" *ngFor="let field of content.fields"
+               [ngClass]="{'w-50': (field.type == 'TEXT' || field.type == 'DATE')}">
+            <label for="text" class="input-label" *ngIf="field.type == 'TEXT'">{{field.name}}</label>
+            <input id="text" type="text" *ngIf="field.type == 'TEXT'" [(ngModel)]="field.data" [ngModelOptions]="{standalone: true}" class="input">
+
+            <label for="date" class="input-label" *ngIf="field.type == 'DATE'">{{field.name}}</label>
+            <input id="date" type="date" class="input" *ngIf="field.type == 'DATE'">
+
+            <label for="media" class="input-label" *ngIf="field.type == 'MEDIA'">{{field.name}}</label>
+            <div class="preview-media" id="media" *ngIf="field.type == 'MEDIA'" (click)="openMediaChooser(field.id)">
+              <p class="preview-media-label" *ngIf="showPreviewLabel && !field.data">Click to add a media file</p>
+              <img [src]="field.data">
+            </div>
+            <app-media-library-popup *ngIf="showMediaLibraryPopup && field.id == selectedFieldId" (closeMediaLibraryPopupEvent)="onCloseMediaLibraryPopup()" (selectedFileUrlEvent)="onSelectFile($event, field)"></app-media-library-popup>
+
+            <label for="media" class="input-label" *ngIf="field.type == 'RICH_TEXT'">{{field.name}}</label>
+            <div [ngxSummernote] [ngxSummernoteView]="field.data" [(ngModel)]="field.data" [ngModelOptions]="{standalone: true}" *ngIf="field.type == 'RICH_TEXT'"></div>
+          </div>
+          <button *ngIf="!selectedUpdateContent" class="btn full-btn" type="button" (click)="createNewContent()">Submit</button>
+          <button *ngIf="selectedUpdateContent" class="btn full-btn" type="button" (click)="updateExistingContent()">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

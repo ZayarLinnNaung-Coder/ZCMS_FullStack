@@ -1,0 +1,40 @@
+<section class="component-section content-manager-section">
+  <div class="menu-wrapper">
+    <div class="menu-container">
+      <div class="header">
+        <p class="f-large">Content-Model Builder</p>
+        <div class="search-button">
+          <fa-icon [icon]="searchIcon"></fa-icon>
+        </div>
+      </div>
+      <div class="category-container">
+        <div class="category">
+          <div class="header">
+            <p class="f-header">Content Models</p>
+            <p class="budget budget-small">5</p>
+          </div>
+          <div class="category-list">
+            <a *ngFor="let contentModel of contentModelList"
+               (click)="showContentModelDetails(contentModel)">
+              {{contentModel.name}}
+            </a>
+          </div>
+          <div class="create-new-link" (click)="createNewContentType()">
+            <fa-icon [icon]="plusIcon"></fa-icon>
+            <a>Create a new content model</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-content-type-details *ngIf="selectedContentModel"
+                            [contentModel]="selectedContentModel"
+                            (updateContentModelEvent)="onUpdateContentModel($event)"
+                            (deleteContentModelEvent)="onDeleteContentModel($event)"
+  ></app-content-type-details>
+</section>
+
+<app-new-content-type *ngIf="showCreateNewContentTypePopup"
+                      (closeEvent)="onClosePopup()"
+                      (addNewContentModelEvent)="onAddNewContentModel($event)"
+></app-new-content-type>

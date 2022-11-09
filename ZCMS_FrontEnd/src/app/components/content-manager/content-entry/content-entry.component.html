@@ -1,0 +1,48 @@
+<div class="content-wrapper">
+  <div class="header">
+    <div class="info">
+      <div class="main-title">
+        <p class="f-ex-large">{{contentModel.name}}</p>
+      </div>
+      <p class="f-small">Add new content for your model</p>
+    </div>
+    <div class="option">
+      <button class="btn btn-text-blue" (click)="showAddNewContentPopup = true">
+        <fa-icon [icon]="plusIcon"></fa-icon>
+        <span class="f-medium btn-text">Add new content</span>
+      </button>
+    </div>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <tr>
+        <td>No</td>
+        <td>Title</td>
+        <td>Created Date</td>
+        <td>Updated Date</td>
+        <td>Created User</td>
+        <td>Status</td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let content of contents; let i = index">
+        <td>{{i + 1}}</td>
+        <td>
+          <p>{{content.title}}</p>
+        </td>
+        <td>{{content.createdDate | date : 'd-M-yyyy hh:mm'}}</td>
+        <td>{{content.updatedDate | date : 'd-M-yyyy hh:mm'}}</td>
+        <td>{{content.createdUser.username}}</td>
+        <td>
+          <p [ngClass]="{'text-success': content.publishStatus == 'PUBLISH', 'text-danger': content.publishStatus == 'UN_PUBLISH'}">{{content.publishStatus}}</p>
+        </td>
+        <td class="optionCol">
+          <fa-icon class="edit-icon" [icon]="editIcon" (click)="onEditContent(content)"></fa-icon>
+          <fa-icon class="delete-icon" [icon]="deleteIcon" (click)="onDeleteContent(content.id)"></fa-icon>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<app-new-content *ngIf="showAddNewContentPopup || isContentUpdateMode" [selectedUpdateContent]="selectedUpdateContent" [activeContentModel]="contentModel"
+                 (closeEvent)="onCloseNewContentPopup()" (newContentEvent)="onAddNewContent($event)" (updateContentEvent)="onUpdateContent($event)"></app-new-content>

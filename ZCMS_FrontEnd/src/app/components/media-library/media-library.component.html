@@ -1,0 +1,36 @@
+<section class="media-library component-section">
+  <div class="media-library-wrapper">
+    <div class="header">
+      <p class="f-ex-large">Media Library</p>
+      <div class="btn-container">
+        <button class="btn btn-bg-blue" (click)="showAddNewAssetPopup = true">
+          <fa-icon [icon]="plusIcon"></fa-icon>
+          <span class="btn-text">Add new assets</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Need to develop later -->
+    <div class="option">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+
+    <div class="asset-container">
+      <div class="asset" *ngFor="let file of fileList">
+        <div class="data">
+          <img height="70%" [src]="file.imgPath" alt="">
+        </div>
+        <div class="footer">
+          <div class="details">
+            <p class="f-header">{{file.name | customNameSplit: 20}}</p>
+            <span class="f-small budget">IMAGE</span>
+          </div>
+          <p class="f-small resolution">JPG - 4160✕5027</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-add-new-assets-popup *ngIf="showAddNewAssetPopup" (closeAssetPopupEvent)="onCloseAssetPopup()"></app-add-new-assets-popup>

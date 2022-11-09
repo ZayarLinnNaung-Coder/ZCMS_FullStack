@@ -1,0 +1,102 @@
+@import "src/variable";
+
+section.side-navbar{
+  width: 15vw;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background-color: $secondary-color;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .navbar-wrapper{
+    display: flex;
+    flex-direction: column;
+    .logo-container{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $border-color;
+      padding: 20px 0;
+      .img-container{
+        width: 32px;
+        height: 32px;
+        border-radius: $small-border-radius;
+        background-color: $theme-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 18px;
+        }
+      }
+      .text-container{
+        margin-left: 10px;
+      }
+    }
+
+    .links-wrapper{
+      .nav-category-container{
+        .nav-category{
+          margin: 10px 0 25px 0;
+          .category-header{
+            margin-bottom: 5px;
+          }
+          .nav-link{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: $small-border-radius;
+            transition: background-color 0.5s;
+            &.active{
+              background-color: $primary-color;
+              color: $theme-secondary-color !important;
+            }
+            &:hover{
+              background-color: $primary-color;
+              color: $opposite-color;
+            }
+            p{
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .user-setting-wrapper{
+    .user-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid $border-color;
+      padding: 15px 0;
+      .logo{
+        width: 32px;
+        height: 32px;
+        background-color: $theme-secondary-color;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button-container{
+        border: 1px solid $primary-color;
+        padding: 5px;
+        border-radius: 2px;
+        fa-icon{
+          font-size: 10px;
+          color: $opposite-color;
+        }
+        &:hover{
+          cursor: pointer;
+          background-color: $theme-color;
+        }
+      }
+    }
+  }
+}
+

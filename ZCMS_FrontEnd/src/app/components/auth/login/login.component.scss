@@ -1,0 +1,39 @@
+@import "src/variable";
+
+section.login-section{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1000;
+  background-color: $primary-color;
+  .login-section-wrapper{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .form-container{
+      width: 35%;
+      padding: 35px 50px;
+      background-color: $secondary-color;
+      .img-container{
+        width: 52px;
+        height: 52px;
+        background-color: $theme-color;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        img{
+          width: 26px;
+        }
+      }
+      .welcome-text{
+        margin: 15px 0;
+        text-align: center;
+      }
+    }
+  }
+}

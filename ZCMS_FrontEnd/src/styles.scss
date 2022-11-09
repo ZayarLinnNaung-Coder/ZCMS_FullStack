@@ -1,0 +1,331 @@
+@import "variable";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+html, body{
+  background-color: $primary-color;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.f-header{
+  font-size: $header-font-size;
+  color: $opposite-color;
+}
+
+.f-medium{
+  font-size: $header-font-size;
+}
+
+.f-large{
+  font-size: $large-font-size;
+  color: $opposite-color;
+}
+
+.f-ex-large{
+  font-size: $ex-large-font-size;
+  color: $opposite-color;
+}
+
+.f-small{
+  font-size: $small-font-size;
+  color: $opposite-secondary-color;
+}
+
+a{
+  text-decoration: none;
+  color: $opposite-secondary-color;
+  &.blue-link{
+    font-size: $small-font-size;
+    color: $theme-color;
+  }
+}
+
+.text-success{
+  color: $green-color;
+}
+
+.text-danger{
+  color: $danger-color;
+}
+
+.table-container{
+  width: 100%;
+  border-radius: 5px;
+  background-color: $secondary-color;
+  padding: 15px 25px;
+  .table{
+    width: 100%;
+    border-collapse: collapse;
+    tr{
+      height: 56px;
+      td{
+        color: $opposite-secondary-color;
+        font-size: $small-font-size;
+      }
+    }
+  }
+}
+
+.edit-icon{
+  &:hover{
+    color: greenyellow;
+    cursor: pointer;
+  }
+}
+
+.delete-icon{
+  &:hover{
+    color: red;
+    cursor: pointer;
+  }
+}
+
+.budget{
+  background-color: $secondary-color;
+  color: $opposite-secondary-color;
+  &.budget-small{
+    padding: 3px 5px;
+    border-radius: 2px;
+  }
+}
+
+.form{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .form-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+    &.w-50{
+      width: 49%;
+    }
+  }
+}
+textarea{
+  height: 75px !important;
+  padding: 15px !important;
+}
+.input{
+  border: 1px solid rgb(74, 74, 106);
+  background-color: transparent;
+  height: 42px;
+  border-radius: 3px;
+  padding: 0 10px;
+  color: $opposite-secondary-color;
+  &:focus-visible{
+    outline: 1px solid $theme-secondary-color;
+  }
+}
+
+.input-label{
+  font-size: $small-font-size;
+  color: $opposite-secondary-color;
+  margin-bottom: 5px;
+}
+
+button.btn{
+  background-color: transparent;
+  outline: 0;
+  border: 1px solid $border-color;
+  height: 42px;
+  padding: 0 15px;
+  border-radius: 5px;
+  background-color: $secondary-color;
+  transition: 0.3s;
+  margin-right: 5px;
+  fa-icon{
+    margin-right: 5px;
+  }
+  &.btn-text-white{
+    fa-icon, .btn-text{
+      color: $opposite-secondary-color;
+    }
+  }
+  &.btn-text-blue{
+    fa-icon, .btn-text{
+      color: $theme-secondary-color;
+    }
+  }
+  &.btn-bg-blue{
+    background-color: $theme-secondary-color;
+    fa-icon, .btn-text{
+      color: $opposite-color;
+    }
+  }
+  &.btn-text-danger{
+    fa-icon, .btn-text{
+      color: $danger-color;
+    }
+    &:hover{
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid $danger-color !important;
+    }
+  }
+  &:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid $theme-secondary-color;
+  }
+}
+
+button.full-btn{
+  width: 100%;
+  height: 42px;
+  border-radius: 3px;
+  background-color: $theme-color;
+  outline: 0;
+  border: 0;
+  color: $opposite-color;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $secondary-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $theme-secondary-color;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+section.component-section{
+  width: 85vw;
+  display: flex;
+  .menu-wrapper{
+    width: 20vw;
+    overflow-y: auto;
+    position: sticky;
+    padding: 20px;
+    top: 0;
+    height: 100vh;
+    .menu-container{
+      height: 90vh;
+      .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .search-button{
+          width: 38px;
+          height: 38px;
+          border: 1px solid $border-color;
+          background-color: $secondary-color;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5px;
+          fa-icon{
+            color: $opposite-secondary-color;
+          }
+        }
+      }
+    }
+    .category-container{
+      padding: 25px 0;
+      .category{
+        margin-top: 25px;
+        .header{
+          margin-bottom: 10px;
+        }
+        .category-list{
+          display: flex;
+          flex-direction: column;
+          a{
+            margin-bottom: 5px;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 3px;
+            &.active{
+              background-color: $theme-secondary-color;
+              color: $primary-color;
+            }
+            &:hover{
+              background-color: $theme-secondary-color;
+              color: $primary-color;
+            }
+          }
+        }
+        .create-new-link{
+          margin-top: 15px;
+          color: $theme-secondary-color;
+          cursor: pointer;
+          fa-icon{
+            margin-right: 10px;
+          }
+          a{
+            font-size: $small-font-size;
+            color: $theme-secondary-color;
+          }
+          &:hover{
+            a{
+              border-bottom: 1px solid $theme-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .content-wrapper{
+    padding: 20px 45px;
+    width: 65vw;
+    .header{
+      display: flex;
+      justify-content: space-between;
+      .info{
+        .main-title{
+          display: flex;
+          margin-bottom: 10px;
+          p{margin-right: 15px;}
+        }
+      }
+      .option{
+
+      }
+    }
+  }
+}
+
+.note-editor{
+  .note-toolbar{
+    background-color: $secondary-color;
+  }
+  .note-btn, .note-dropdown-menu{
+    background-color: $primary-color;
+    border: 0;
+    color: $opposite-secondary-color;
+  }
+  .note-dropdown-menu *{
+    color: $opposite-secondary-color;
+  }
+  .note-editable{
+    font-size: $small-font-size;
+    color: $opposite-secondary-color;
+    height: 300px !important;
+  }
+}
+
+.note-modal-backdrop{
+  position: unset;
+}

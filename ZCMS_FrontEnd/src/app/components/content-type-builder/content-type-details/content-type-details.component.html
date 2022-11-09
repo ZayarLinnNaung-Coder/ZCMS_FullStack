@@ -1,0 +1,63 @@
+<div class="content-wrapper">
+  <div class="header">
+    <div class="info">
+      <div class="main-title">
+        <p class="f-ex-large">{{contentModel.name}}</p>
+        <button class="btn btn-text-white" (click)="onEditContentType()">
+          <fa-icon [icon]="editIcon"></fa-icon>
+          <span class="f-medium btn-text">Edit</span>
+        </button>
+        <button class="btn btn-text-danger" (click)="onDeleteContentType(contentModel.id)">
+          <fa-icon [icon]="deleteIcon"></fa-icon>
+          <span class="f-medium btn-text">Delete</span>
+        </button>
+      </div>
+      <p class="f-small">Build the data architecture of your content</p>
+    </div>
+    <div class="option">
+      <button class="btn btn-text-blue">
+        <fa-icon [icon]="plusIcon"></fa-icon>
+        <span class="f-medium btn-text" (click)="showFieldChooserPopup = true">Add another field</span>
+      </button>
+    </div>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <tr>
+        <td>Name</td>
+        <td>Type</td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let field of fields">
+        <td class="nameCol" width="10%">
+          <img src="../../../../assets/img/text.svg" alt="">
+          <p>{{field.name}}</p>
+        </td>
+        <td class="typeCol">{{field.type}}</td>
+        <td class="optionCol">
+          <fa-icon class="edit-icon" [icon]="editIcon" (click)="onEditField(field)"></fa-icon>
+          <fa-icon class="delete-icon" [icon]="deleteIcon" (click)="onDeleteField(field.id)"></fa-icon>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<app-field-chooser *ngIf="showFieldChooserPopup" [activeContentModel]="contentModel"
+                   (fileChooserCloseEvent)="closeFieldChooserPopup()"
+                   (addNewFieldEvent)="onAddNewField($event)"
+></app-field-chooser>
+
+<app-field-details *ngIf="isFieldUpdateMode"
+                   [isFieldUpdateMode]="isFieldUpdateMode"
+                   [selectedUpdateField]="selectedUpdateField"
+                   (closeEvent)="closeFieldDetailsPopup()"
+                   (updateFieldEvent)="onUpdateExistingField($event)"
+></app-field-details>
+
+<app-new-content-type *ngIf="isContentTypeUpdateMode"
+                      [contentModel]="contentModel"
+                      [isUpdateMode]="isContentTypeUpdateMode"
+                      (closeEvent)="closeContentTypePopup()"
+                      (updateContentModelEvent)="onUpdateContentModelEvent($event)">
+</app-new-content-type>

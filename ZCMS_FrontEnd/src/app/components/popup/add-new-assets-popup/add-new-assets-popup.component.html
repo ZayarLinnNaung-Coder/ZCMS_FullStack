@@ -1,0 +1,27 @@
+<section class="add-new-asset-section">
+  <div class="add-new-asset-wrapper">
+    <div class="header">
+      <p class="header-text">Add new assets</p>
+      <fa-icon class="close-icon" [icon]="closeIcon" (click)="closeAddNewAssetsPopup()"></fa-icon>
+    </div>
+    <div class="body">
+      <div class="data">
+        <div class="no-assets-warning-text" *ngIf="showNoAssetWarning">
+          <p class="f-header">No asset ready to upload</p>
+          <p class="f-small">Manage the assets before adding them to the Media Library</p>
+        </div>
+        <div class="assets-container">
+          <div class="asset">
+            <img src="" id="assetImg" alt="">
+            <div class="info"></div>
+          </div>
+        </div>
+      </div>
+      <button class="btn note-btn-primary" (click)="fileInput.click()">Add new assets</button>
+      <input #fileInput type="file" style="display: none" (change)="onChangeUploadAssets($event)">
+    </div>
+    <div class="footer">
+      <button class="btn btn-bg-blue" (click)="onUploadAssets()">Upload all assets</button>
+    </div>
+  </div>
+</section>

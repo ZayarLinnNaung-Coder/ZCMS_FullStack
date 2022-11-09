@@ -1,0 +1,33 @@
+<section class="field-chooser-section">
+  <div class="field-chooser-wrapper">
+    <div class="header">
+      <p class="header-text">BLOG</p>
+      <fa-icon class="close-icon" [icon]="closeIcon" (click)="closePopup()"></fa-icon>
+    </div>
+    <div class="body">
+      <div class="fields-container">
+        <div class="title">
+          <p class="intro-text f-header">
+            <span *ngIf="!isFieldUpdateMode">Add new {{selectedFiledType.type | lowercase}}</span>
+            <span *ngIf="isFieldUpdateMode">Update {{selectedUpdateField.type | lowercase}}</span>
+          </p>
+          <div class="options"></div>
+        </div>
+        <form class="form" [formGroup]="formGroup">
+          <div class="form-group w-50">
+            <label for="name" class="input-label">Name</label>
+            <input id="name" type="text" class="input" formControlName="fieldName">
+          </div>
+          <div class="form-group w-50">
+            <label for="description" class="input-label">Description</label>
+            <input id="description" type="text" class="input" formControlName="description">
+          </div>
+          <div class="btn-container">
+            <button *ngIf="!isFieldUpdateMode" class="btn full-btn" type="button" (click)="addNewField()">Finish</button>
+            <button *ngIf="isFieldUpdateMode" class="btn full-btn" type="button" (click)="updateField()">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
