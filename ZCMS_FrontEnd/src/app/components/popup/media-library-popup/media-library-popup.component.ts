@@ -35,7 +35,7 @@ export class MediaLibraryPopupComponent implements OnInit {
   }
 
   onAddFile(addedPath: string) {
-    this.fileList.push(this.getFile(addedPath))
+    this.fileList.push(this.getFile(addedPath.split('"')[1]))
   }
 
   private getFile(path: string){

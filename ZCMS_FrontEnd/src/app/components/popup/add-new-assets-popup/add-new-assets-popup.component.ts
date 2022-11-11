@@ -18,8 +18,6 @@ export class AddNewAssetsPopupComponent implements OnInit {
   @Output() closeAssetPopupEvent = new EventEmitter<void>();
   @Output() addedFileEvent = new EventEmitter<string>();
 
-
-
   constructor(private fileService: FileService) { }
 
   ngOnInit(): void {
@@ -42,7 +40,7 @@ export class AddNewAssetsPopupComponent implements OnInit {
 
   onUploadAssets() {
     this.fileService.uploadFile(this.uploadAssetList).subscribe(response => {
-      NotifierService.success('Successfully added')
+      NotifierService.success('Successfully added');
       this.closeAssetPopupEvent.emit();
       this.addedFileEvent.emit(response);
     });

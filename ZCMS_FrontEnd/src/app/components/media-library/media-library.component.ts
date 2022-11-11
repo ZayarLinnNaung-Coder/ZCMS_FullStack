@@ -20,15 +20,24 @@ export class MediaLibraryComponent implements OnInit {
   ngOnInit(): void {
     this.fileService.getAllFiles().subscribe((pathList: string[]) => {
       pathList.splice(0, 1);
-      pathList.forEach(path => {
-        const nameSplit = path.split('/');
-        const fileName = nameSplit[nameSplit.length - 1];
-        this.fileList.push({name: fileName, imgPath: this.url + '/' + fileName});
+      console.log(pathList)
+      pathList.forEach(filePath => {
+        this.addToFileList(filePath);
       })
     })
   }
 
   onCloseAssetPopup() {
     this.showAddNewAssetPopup = false;
+  }
+
+  onAddNewFile(filePath: string) {
+    this.addToFileList(filePath.split('"')[1]);
+  }
+
+  private addToFileList(filePath: string){
+    const nameSplit = filePath.split('/');
+    const fileName = nameSplit[nameSplit.length - 1];
+    this.fileList.push({name: fileName, imgPath: this.url + '/' + fileName});
   }
 }
