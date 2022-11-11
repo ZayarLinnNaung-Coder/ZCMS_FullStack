@@ -23,54 +23,54 @@ The app defines following CRUD APIs.
 
 ### User
 
-| Method | Url | Decription | Sample Valid Request Body | 
-| ------ | --- | ---------- | --------------------------- |
-| GET   | /users?username=:username | Find User by Username | |
+| Method | Url | Decription | Sample Valid Request Body | Bearer Token |
+| ------ | --- | ---------- | --------------------------- | ----------------|
+| GET   | /users?username=:username | Find User by Username | | required |
 
 ### Auth
 
-| Method | Url | Decription | Sample Valid Request Body | 
-| ------ | --- | ---------- | --------------------------- |
-| POST   | /auth/register | Register User | [JSON](#register) |
-| POST   | /auth/login | Log in | [JSON](#login) |
+| Method | Url | Decription | Sample Valid Request Body | Bearer Token |
+| ------ | --- | ---------- | --------------------------- | ----------------|
+| POST   | /auth/register | Register User | [JSON](#register) | |
+| POST   | /auth/login | Log in | [JSON](#login) | |
 
 ### Content Model
 
-| Method | Url | Decription | Sample Valid Request Body | 
-| ------ | --- | ---------- | --------------------------- |
-| GET    | /content-models | Get All Content Models | |
-| GET    | /content-models?userId=:userId | Get All Content Models By UserId| |
-| POST   | /content-models | Create New Content Model | [JSON](#newContentModel) |
-| PUT    | /content-models | Update Content Model| [JSON](#updateContentModel) |
-| DELETE | /content-models/{id} | Delete Content Model By Id| |
+| Method | Url | Decription | Sample Valid Request Body | Bearer Token |
+| ------ | --- | ---------- | --------------------------- | ----------------|
+| GET    | /content-models | Get All Content Models | | required |
+| GET    | /content-models?userId=:userId | Get All Content Models By UserId| | required |
+| POST   | /content-models | Create New Content Model | [JSON](#newContentModel) | required |
+| PUT    | /content-models | Update Content Model| [JSON](#updateContentModel) | required |
+| DELETE | /content-models/{id} | Delete Content Model By Id| | required |
 
 ### Field
 
-| Method | Url | Decription | Sample Valid Request Body | 
-| ------ | --- | ---------- | --------------------------- |
-| GET    | /fields | Get All Fields | |
-| GET    | /fields?contentModelId=:contentModelId | Get All Fields By ContentModelId| |
-| POST   | /fields | Create New Field | [JSON](#newField) |
-| PUT    | /fields | Update Field| [JSON](#updateField) |
-| DELETE | /fields/{id} | Delete Field By Id| |
+| Method | Url | Decription | Sample Valid Request Body | Bearer Token |
+| ------ | --- | ---------- | --------------------------- | ----------------|
+| GET    | /fields | Get All Fields | | required |
+| GET    | /fields?contentModelId=:contentModelId | Get All Fields By ContentModelId| | required |
+| POST   | /fields | Create New Field | [JSON](#newField) | required |
+| PUT    | /fields | Update Field| [JSON](#updateField) | required |
+| DELETE | /fields/{id} | Delete Field By Id| | required |
 
 ### Content
 
-| Method | Url | Decription | Sample Valid Request Body | 
-| ------ | --- | ---------- | --------------------------- |
-| GET    | /contents | Get All Contents | |
-| GET    | /contents?contentModelId=:contentModelId | Get All Contents By ContentModelId| |
-| POST   | /contents | Create New Content | [JSON](#newContent) |
-| PUT    | /contents | Update Content| [JSON](#updateContent) |
-| DELETE | /contents/{id} | Delete Content By Id| |
+| Method | Url | Decription | Sample Valid Request Body | Bearer Token |
+| ------ | --- | ---------- | --------------------------- | ----------------|
+| GET    | /contents | Get All Contents | | required |
+| GET    | /contents?contentModelId=:contentModelId | Get All Contents By ContentModelId| | required |
+| POST   | /contents | Create New Content | [JSON](#newContent) | required |
+| PUT    | /contents | Update Content| [JSON](#updateContent) | required |
+| DELETE | /contents/{id} | Delete Content By Id| | required |
 
 ### File
 
-| Method | Url | Decription | Sample Valid Request Body | 
-| ------ | --- | ---------- | --------------------------- |
-| GET    | /files | Get All Uploaded Files | |
-| GET    | /files/{fileName} | Load File by FileName| |
-| POST   | /files | Save File | [Form Data] |
+| Method | Url | Decription | Sample Valid Request Body | Bearer Token |
+| ------ | --- | ---------- | --------------------------- | ----------------|
+| GET    | /files | Get All Uploaded Files | | required |
+| GET    | /files/{fileName} | Load File by FileName| | |
+| POST   | /files | Save File | [Form Data] | required |
 
 ## Sample Valid JSON Request Bodys
 
