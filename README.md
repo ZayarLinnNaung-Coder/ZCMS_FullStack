@@ -1,6 +1,9 @@
 # ZCMS
 Demo project for content management system (ZCMS)
 
+![Untitled-4](https://user-images.githubusercontent.com/84829442/202894698-66c6ef96-9fa6-4653-ba30-32cbd73b8a38.gif)
+
+
 ### Front End
 1. HTML
 2. CSS/ SCSS
